@@ -9,5 +9,11 @@ get '/' do
 end
 
 post '/generate' do
+  content_type :json
   { code: [Forgery::Basic.color, Forgery::Address.street_name.split(" ").first, rand(100)].join("-").downcase }.to_json
 end
+
+get '/generate' do
+  content_type :json
+  { code: [Forgery::Basic.color, Forgery::Address.street_name.split(" ").first, rand(100)].join("-").downcase }.to_json
+end  
